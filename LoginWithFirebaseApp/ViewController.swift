@@ -9,9 +9,14 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var registerButtun: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        registerButtun.layer.cornerRadius = 10
+        
     }
 
 
