@@ -92,6 +92,9 @@
                                 <state key="normal" title="Register">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="tappedRegisterButtun:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gUB-N8-ONI"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="InG-ld-pdx">
                                 <rect key="frame" x="62.5" y="686" width="289" height="30"/>

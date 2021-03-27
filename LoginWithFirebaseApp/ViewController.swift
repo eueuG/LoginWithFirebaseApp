@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class ViewController: UIViewController {
 
@@ -17,6 +19,26 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var usernameTextField: UITextField!
     
+    //registerbuttun押した時の処理がここで受け取れる
+    @IBAction func tappedRegisterButtun(_ sender: Any) {
+        handleAuthToFirebase()
+        print("tappedRegisterButtun")
+    }
+    
+    private func handleAuthToFirebase() {
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        
+        //Cannot find 'Auth' in scope っていうエラーが出たのでここにFirebaseAuthをインポートして解決
+        Auth.auth().createUser(withEmail: email, password: password) { (res, err) in
+            if let err = err {
+                print("認証情報の保存に失敗しました。\(err)")
+                return
+            }
+            
+            print("認証情報の保存に成功しました。")
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
