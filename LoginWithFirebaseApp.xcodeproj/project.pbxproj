@@ -15,6 +15,7 @@
 		0C7209E6260DAC3000908C23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C7209E4260DAC3000908C23 /* LaunchScreen.storyboard */; };
 		0C7209F1260DAC3100908C23 /* LoginWithFirebaseAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7209F0260DAC3100908C23 /* LoginWithFirebaseAppTests.swift */; };
 		0C7209FC260DAC3100908C23 /* LoginWithFirebaseAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7209FB260DAC3100908C23 /* LoginWithFirebaseAppUITests.swift */; };
+		0C720A0D260DBCB600908C23 /* UIColoe-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C720A0C260DBCB600908C23 /* UIColoe-Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		0C7209F7260DAC3100908C23 /* LoginWithFirebaseAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoginWithFirebaseAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C7209FB260DAC3100908C23 /* LoginWithFirebaseAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithFirebaseAppUITests.swift; sourceTree = "<group>"; };
 		0C7209FD260DAC3100908C23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0C720A0C260DBCB600908C23 /* UIColoe-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColoe-Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				0C7209D9260DAC2E00908C23 /* AppDelegate.swift */,
 				0C7209DB260DAC2E00908C23 /* SceneDelegate.swift */,
 				0C7209DD260DAC2E00908C23 /* ViewController.swift */,
+				0C720A0C260DBCB600908C23 /* UIColoe-Extension.swift */,
 				0C7209DF260DAC2E00908C23 /* Main.storyboard */,
 				0C7209E2260DAC3000908C23 /* Assets.xcassets */,
 				0C7209E4260DAC3000908C23 /* LaunchScreen.storyboard */,
@@ -258,6 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C720A0D260DBCB600908C23 /* UIColoe-Extension.swift in Sources */,
 				0C7209DE260DAC2E00908C23 /* ViewController.swift in Sources */,
 				0C7209DA260DAC2E00908C23 /* AppDelegate.swift in Sources */,
 				0C7209DC260DAC2E00908C23 /* SceneDelegate.swift in Sources */,
