@@ -29,7 +29,7 @@ class HomeViewController: UIViewController {
     private func handleLogout() {//Call can throw, but it is not marked with 'try' and the error is not handled　が出ないようにdo try catchていう書き方をします
         do {
            try  Auth.auth().signOut()
-            presentToMainViewController()
+            presentToSignUpViewController()
         } catch (let err) {
             print("ログアウトに失敗しました: \(err)")
         }
@@ -57,12 +57,12 @@ class HomeViewController: UIViewController {
     
     private func confirmLoggedInUset() {
         if Auth.auth().currentUser?.uid == nil || user == nil {
-            presentToMainViewController()
+            presentToSignUpViewController()
            }
     }
     
-    private func presentToMainViewController() {
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+    private func presentToSignUpViewController() {
+        let storyBoard = UIStoryboard(name: "SignUp", bundle: nil)
         let viewController = storyBoard.instantiateViewController(identifier: "ViewController") as ViewController
         
         let navController = UINavigationController(rootViewController: viewController)
