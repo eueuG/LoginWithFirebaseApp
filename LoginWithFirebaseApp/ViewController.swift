@@ -8,6 +8,8 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseFirestore
+
 
 class ViewController: UIViewController {
 
@@ -36,7 +38,19 @@ class ViewController: UIViewController {
                 return
             }
             
-            print("認証情報の保存に成功しました。")
+         
+            guard let uid = Auth.auth().currentUser?.uid else { return }
+            guard let name = self.usernameTextField.text else { return }
+            let docData = ["email": email, "name": name, "createdAt": Timestamp()] as [String : Any]
+            //配列の型をStringで指定、その後ろはAnyで指定
+            
+            Firestore.firestore().collection("users").document(uid).setData(docData) { (err) in
+                if let err = err {
+                    print("Firestoreへの保存に失敗しました。\(err)")
+                    return
+                }
+                print("Firestoreへの保存に成功しました。")
+            }
         }
     }
     
