@@ -36,6 +36,14 @@ class ViewController: UIViewController {
         print("tappedRegisterButtun")
     }
     
+    @IBAction func tappedAlresdyHaveAccountButton(_ sender: Any) {
+        let storyBoard = UIStoryboard(name: "Login", bundle: nil)
+        let homeViewController = storyBoard.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
+        navigationController?.pushViewController((homeViewController), animated: true)
+       // self.present(homeViewController, animated: true, completion: nil)
+        
+    }
+    
     private func handleAuthToFirebase() {
         HUD.show(.progress, onView: view)
         guard let email = emailTextField.text else { return }
@@ -129,7 +137,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+        registerButtun.isEnabled = false
         registerButtun.layer.cornerRadius = 10
         registerButtun.backgroundColor = UIColor.rgb(red: 255, green: 221, blue: 187)
         
@@ -140,6 +148,12 @@ class ViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(showKeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(hideKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.isHidden = true
     }
     
     @objc func showKeyboard(notification: Notification) {

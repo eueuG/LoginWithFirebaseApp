@@ -29,7 +29,7 @@ class HomeViewController: UIViewController {
     private func handleLogout() {//Call can throw, but it is not marked with 'try' and the error is not handled　が出ないようにdo try catchていう書き方をします
         do {
            try  Auth.auth().signOut()
-            dismiss(animated: true, completion: nil)
+            presentToMainViewController()
         } catch (let err) {
             print("ログアウトに失敗しました: \(err)")
         }
@@ -47,6 +47,28 @@ class HomeViewController: UIViewController {
         let dateString = dateFormatterForCreatedAt(date: user.createdAt.dateValue())
         dateLabel.text = "作成日:  " + dateString
         }
+    }
+    
+
+    
+    override func viewDidAppear(_ animated: Bool) {
+        confirmLoggedInUset()
+    }
+    
+    private func confirmLoggedInUset() {
+        if Auth.auth().currentUser?.uid == nil || user == nil {
+            presentToMainViewController()
+           }
+    }
+    
+    private func presentToMainViewController() {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyBoard.instantiateViewController(identifier: "ViewController") as ViewController
+        
+        let navController = UINavigationController(rootViewController: viewController)
+        navController.modalPresentationStyle = .fullScreen
+        self.present(navController, animated: true, completion: nil)
+        
     }
     
     private func dateFormatterForCreatedAt(date: Date) -> String{
