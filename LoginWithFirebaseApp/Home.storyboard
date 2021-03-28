@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home View Controller-->
+        <scene sceneID="0aa-Zo-dqi">
+            <objects>
+                <viewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7JH-61-oDm" customClass="HomeViewController" customModule="LoginWithFirebaseApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mnW-6e-EMi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lz2-FP-3fH">
+                                <rect key="frame" x="88" y="184" width="238" height="72"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="さんようこそ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zG1-pC-3E9">
+                                <rect key="frame" x="146" y="356" width="122.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UpT-v9-FgA">
+                                <rect key="frame" x="146" y="400" width="122.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="作成日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hlB-s9-XIz">
+                                <rect key="frame" x="181" y="441" width="52" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cTH-Qm-t37">
+                                <rect key="frame" x="107" y="532" width="200" height="50"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="KV7-6a-mXE"/>
+                                    <constraint firstAttribute="height" constant="50" id="oyb-so-IZU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="tbO-Sr-UdR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Lz2-FP-3fH" firstAttribute="centerX" secondItem="mnW-6e-EMi" secondAttribute="centerX" id="96P-jp-APx"/>
+                            <constraint firstItem="cTH-Qm-t37" firstAttribute="centerX" secondItem="mnW-6e-EMi" secondAttribute="centerX" id="Dil-tV-aV2"/>
+                            <constraint firstItem="cTH-Qm-t37" firstAttribute="centerX" secondItem="mnW-6e-EMi" secondAttribute="centerX" id="HU9-SI-crC"/>
+                            <constraint firstItem="zG1-pC-3E9" firstAttribute="centerX" secondItem="mnW-6e-EMi" secondAttribute="centerX" id="KKZ-ca-Ydr"/>
+                            <constraint firstItem="Lz2-FP-3fH" firstAttribute="top" secondItem="tbO-Sr-UdR" secondAttribute="top" constant="140" id="Rau-sa-sfR"/>
+                            <constraint firstItem="hlB-s9-XIz" firstAttribute="top" secondItem="UpT-v9-FgA" secondAttribute="bottom" constant="20" id="aPl-w8-zRt"/>
+                            <constraint firstItem="zG1-pC-3E9" firstAttribute="top" secondItem="Lz2-FP-3fH" secondAttribute="bottom" constant="100" id="cYC-ju-iAT"/>
+                            <constraint firstItem="UpT-v9-FgA" firstAttribute="top" secondItem="zG1-pC-3E9" secondAttribute="bottom" constant="20" id="dCq-wu-tzU"/>
+                            <constraint firstItem="UpT-v9-FgA" firstAttribute="centerX" secondItem="mnW-6e-EMi" secondAttribute="centerX" id="iPe-m9-No7"/>
+                            <constraint firstItem="hlB-s9-XIz" firstAttribute="centerX" secondItem="mnW-6e-EMi" secondAttribute="centerX" id="kmL-Rf-Rjx"/>
+                            <constraint firstItem="cTH-Qm-t37" firstAttribute="top" secondItem="hlB-s9-XIz" secondAttribute="bottom" constant="70" id="zHH-hu-Rgl"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="hlB-s9-XIz" id="o7b-WY-49f"/>
+                        <outlet property="emailLabel" destination="UpT-v9-FgA" id="H1H-6k-igl"/>
+                        <outlet property="logoutButton" destination="cTH-Qm-t37" id="a8G-fE-0Cn"/>
+                        <outlet property="nameLabel" destination="zG1-pC-3E9" id="zcF-ky-wJC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lSl-mD-PWw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="81" y="131"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

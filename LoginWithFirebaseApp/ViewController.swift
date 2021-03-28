@@ -10,15 +10,23 @@ import Firebase
 import FirebaseAuth
 import FirebaseFirestore
 
+struct User {
+    let name: String
+    let createdAt: Timestamp
+    let email: String
+    
+    init(dic: [String: Any]) {
+        self.name = dic["name"] as! String
+        self.createdAt = dic["createdAt"] as! Timestamp
+        self.email = dic["email"] as! String
+    }
+}
 
 class ViewController: UIViewController {
 
     @IBOutlet weak var registerButtun: UIButton!
-    
     @IBOutlet weak var emailTextField: UITextField!
-    
     @IBOutlet weak var passwordTextField: UITextField!
-    
     @IBOutlet weak var usernameTextField: UITextField!
     
     //registerbuttun押した時の処理がここで受け取れる
@@ -38,20 +46,59 @@ class ViewController: UIViewController {
                 return
             }
             
-         
-            guard let uid = Auth.auth().currentUser?.uid else { return }
-            guard let name = self.usernameTextField.text else { return }
-            let docData = ["email": email, "name": name, "createdAt": Timestamp()] as [String : Any]
-            //配列の型をStringで指定、その後ろはAnyで指定
+         //下のaddUser〜に移動しました
+//            guard let uid = Auth.auth().currentUser?.uid else { return }
+//            guard let name = self.usernameTextField.text else { return }
+//            let docData = ["email": email, "name": name, "createdAt": Timestamp()] as [String : Any]
+//            //配列の型をStringで指定、その後ろはAnyで指定
+//
+//            Firestore.firestore().collection("users").document(uid).setData(docData) { (err) in
+//                if let err = err {
+//                    print("Firestoreへの保存に失敗しました。\(err)")
+//                    return
+//                }
+//                print("Firestoreへの保存に成功しました。")
+//            }
+            self.addUserInfoToFirestore(email: email)
+        }
+    }
+    
+    private func addUserInfoToFirestore(email: String) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        guard let name = self.usernameTextField.text else { return }
+        let docData = ["email": email, "name": name, "createdAt": Timestamp()] as [String : Any]
+        //配列の型をStringで指定、その後ろはAnyで指定
+        
+        //Firestoreのusersっていうところを参照してる変数
+        let userRef = Firestore.firestore().collection("users").document(uid)
+        
+        userRef.setData(docData) { (err) in
+            if let err = err {
+                print("Firestoreへの保存に失敗しました。\(err)")
+                return
+            }
+            print("Firestoreへの保存に成功しました。")
             
-            Firestore.firestore().collection("users").document(uid).setData(docData) { (err) in
+            userRef.getDocument { (snapshot, err) in
                 if let err = err {
-                    print("Firestoreへの保存に失敗しました。\(err)")
+                    print("ユーザー情報の取得に失敗しました。\(err)")
                     return
                 }
-                print("Firestoreへの保存に成功しました。")
+                
+                //変数dataにuserRefからsnapshotで一時保存したデータを入れる。
+                //それを使って構造体Userの型に入れる
+                guard let data = snapshot?.data() else { return }
+                let user = User.init(dic: data)
+                print("ユーザー情報の取得が出来ました。\(user.name)")
+                
+                let storyBoard = UIStoryboard(name: "Home", bundle: nil)
+                let homeViewController = storyBoard.instantiateViewController(identifier: "HomeViewController") as HomeViewController
+                self.present(homeViewController, animated: true, completion: nil)
+                
             }
+           
         }
+        
     }
     
     override func viewDidLoad() {
